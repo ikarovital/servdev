@@ -1,15 +1,26 @@
-name: Playwright E2E
+name: Playwright E2E + Allure Report
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test:
+    name: Run tests & generate report
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -25,16 +36,43 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test --reporter=line,allure-playwright
+        continue-on-error: true
 
       - name: Generate Allure Report
         if: always()
         run: npx allure generate ./allure-results --clean -o allure-report
         continue-on-error: true
 
-      - name: Upload Allure Report
+      - name: Upload Allure Report (artifact)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: allure-report/
           retention-days: 30
+
+  publish-report:
+    name: Publish report to GitHub Pages
+    if: always() && (needs.test.result == 'success' || needs.test.result == 'failure')
+    needs: test
+    runs-on: ubuntu-latest
+    environment: github-pages
+    steps:
+      - name: Download Allure Report
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+
+      - name: Upload artifact for deployment
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: publish-report
+    runs-on: ubuntu-latest
+    environment: github-pages
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
