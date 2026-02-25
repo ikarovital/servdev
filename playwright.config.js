@@ -12,7 +12,8 @@ export default defineConfig({
 
   reporter: [
     ['html'],
-    ['list']
+    ['list'],
+    ['allure-playwright', { outputFolder: 'allure-results' }]
   ],
 
   use: {
