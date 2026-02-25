@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../../pages/LoginPage.js';   
+import { LoginPage } from '../../pages/loginPage.js';   
 import { generateUser } from '../../utils/dataGenerator.js';
 import { saveUserCredentials } from '../../utils/fileManager.js';
 
@@ -33,7 +33,7 @@ test.describe('Autenticação - Login e Logout', () => {
   
     // Salva credenciais após criação
     saveUserCredentials(user);
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(4000);
     await page.screenshot({
       path: 'screenshots/login-sucesso.png',
       fullPage: true
