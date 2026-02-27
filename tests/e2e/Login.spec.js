@@ -12,13 +12,7 @@ async function takeScreenshotAndAttach(page, testInfo, filePath, attachName) {
   await testInfo.attach(attachName, { body: buffer, contentType: 'image/png' });
 }
 
-const VALID_EMAIL =
-  process.env.PLAYWRIGHT_VALID_EMAIL ||
-  'novotestamento@teste.com';
 
-const VALID_PASSWORD =
-  process.env.PLAYWRIGHT_VALID_PASSWORD ||
-  '12345';
 
 test.describe('Autenticação - Login e Logout', () => {
 

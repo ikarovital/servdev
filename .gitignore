@@ -10,3 +10,5 @@ screenshots/
 test-data/
 allure-results/
 allure-report/
+/comandos-playwright/
+/como-ver-relatorio-github/

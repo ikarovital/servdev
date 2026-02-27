@@ -3,7 +3,7 @@ import { getSavedUser } from '../utils/fileManager.js';
 
 export class LoginPage {
   /**
-   * @param {import('@playwright/test').Page} page
+   * @param {object} page - Instância do Page do Playwright
    */
   constructor(page) {
     this.page = page;
