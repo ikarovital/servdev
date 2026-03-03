@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { getSavedUser } from '../utils/fileManager.js';
+import { getSavedUser } from '../helpers/fileManager.js';
 
 export class LoginPage {
   /**

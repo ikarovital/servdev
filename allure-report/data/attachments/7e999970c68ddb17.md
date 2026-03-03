@@ -1,0 +1,43 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - navigation [ref=e5]:
+    - generic [ref=e6]:
+      - img [ref=e7]
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - generic [ref=e10] [cursor=pointer]: Home
+        - listitem [ref=e11]:
+          - generic [ref=e12] [cursor=pointer]: Cadastrar Usuários
+        - listitem [ref=e13]:
+          - generic [ref=e14] [cursor=pointer]: Listar Usuários
+        - listitem [ref=e15]:
+          - generic [ref=e16] [cursor=pointer]: Cadastrar Produtos
+        - listitem [ref=e17]:
+          - generic [ref=e18] [cursor=pointer]: Listar Produtos
+        - listitem [ref=e19]:
+          - generic [ref=e20] [cursor=pointer]: Relatórios
+      - button "Logout" [ref=e22] [cursor=pointer]
+  - generic [ref=e24]:
+    - heading "Cadastro de Produtos" [level=1] [ref=e25]
+    - separator [ref=e26]
+    - generic [ref=e28]:
+      - generic [ref=e29]: "Nome: *"
+      - 'textbox "Nome: *" [ref=e30]':
+        - /placeholder: Digite o nome do produto
+    - generic [ref=e32]:
+      - generic [ref=e33]: "Preço: *"
+      - 'spinbutton "Preço: *" [ref=e34]'
+    - generic [ref=e36]:
+      - generic [ref=e37]: "Descrição: *"
+      - 'textbox "Descrição: *" [ref=e38]':
+        - /placeholder: Digite a descrição do produto
+    - generic [ref=e40]:
+      - generic [ref=e41]: "Quantidade: *"
+      - 'spinbutton "Quantidade: *" [ref=e42]'
+    - generic [ref=e44]:
+      - generic [ref=e45]: "Imagem: *"
+      - 'button "Imagem: *" [ref=e46]'
+    - button "Cadastrar" [active] [ref=e49] [cursor=pointer]
+```

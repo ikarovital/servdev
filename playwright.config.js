@@ -3,6 +3,8 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
 
+  outputDir: 'reports/test-results',
+
   timeout: 30 * 1000,
 
   expect: {
@@ -10,9 +12,9 @@ export default defineConfig({
   },
 
   reporter: [
-    ['html'],
+    ['html', { outputFolder: 'reports/playwright-report' }],
     ['list'],
-    ['allure-playwright', { outputFolder: 'allure-results' }]
+    ['allure-playwright', { outputFolder: 'reports/allure-results-playwright' }]
   ],
 
   use: {

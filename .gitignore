@@ -1,14 +1,20 @@
 
-# Playwright
+# Dependências e cache
 node_modules/
-/test-results/
-/playwright-report/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
-screenshots/
-test-data/
-allure-results/
-allure-report/
+
+# Artefatos de execução (todos sob reports/)
+reports/
+/docs/DIAGNOSTICO-ARQUITETURA-E-PROPOSTA.md/
+/docs/DOCUMENTACAO-PROJETO.md/
+/docs/FASE-1-MIGRACAO-RESUMO.md/
+/docs/FASE-2-MIGRACAO-RESUMO.md/
+/docs/FASE-3-MIGRACAO-RESUMO.md/
+# Pastas/arquivos locais
 /comandos-playwright/
 /como-ver-relatorio-github/
+
+# Dados gerados em runtime (fixtures em test-data/ permanecem versionados)
+test-data/createdUser.json

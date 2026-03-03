@@ -1,20 +1,26 @@
 import fs from 'fs';
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../pages/LoginPage.js';
-import { generateUser } from '../../utils/dataGenerator.js';
-import { saveUserCredentials } from '../../utils/fileManager.js';
+import { generateUser } from '../../helpers/dataGenerator.js';
+import { saveUserCredentials } from '../../helpers/fileManager.js';
+
+/**
+ * LEGADO: Cenários migrados para BDD em features/autenticacao.feature.
+ * Execução principal: npm run test:bdd (Cucumber + Allure).
+ * Este spec é mantido para referência ou execução via: npm run test
+ */
 
 /** Salva screenshot em pasta e anexa ao Allure (buffer garante exibição no relatório). */
 async function takeScreenshotAndAttach(page, testInfo, filePath, attachName) {
   const buffer = await page.screenshot({ fullPage: true });
-  fs.mkdirSync('screenshots', { recursive: true });
+  fs.mkdirSync('reports/screenshots', { recursive: true });
   fs.writeFileSync(filePath, buffer);
   await testInfo.attach(attachName, { body: buffer, contentType: 'image/png' });
 }
 
 
 
-test.describe('Autenticação - Login e Logout', () => {
+test.describe('Regressão - Autenticação - Login e Logout', () => {
 
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
@@ -41,7 +47,7 @@ test.describe('Autenticação - Login e Logout', () => {
     await takeScreenshotAndAttach(
       page,
       testInfo,
-      'screenshots/login-sucesso.png',
+      'reports/screenshots/login-sucesso.png',
       'Evidência - Cadastro com sucesso'
     );
   });
@@ -59,7 +65,7 @@ test.describe('Autenticação - Login e Logout', () => {
     await takeScreenshotAndAttach(
       page,
       testInfo,
-      'screenshots/login-usuario-salvo.png',
+      'reports/screenshots/login-usuario-salvo.png',
       'Evidência - Login com usuário salvo'
     );
   });
@@ -77,7 +83,7 @@ test.describe('Autenticação - Login e Logout', () => {
     await takeScreenshotAndAttach(
       page,
       testInfo,
-      'screenshots/login-credenciais-invalidas.png',
+      'reports/screenshots/login-credenciais-invalidas.png',
       'Evidência - Mensagem credenciais inválidas'
     );
   });
@@ -95,7 +101,7 @@ test.describe('Autenticação - Login e Logout', () => {
     await takeScreenshotAndAttach(
       page,
       testInfo,
-      'screenshots/login-campos-obrigatorios.png',
+      'reports/screenshots/login-campos-obrigatorios.png',
       'Evidência - Validação campos obrigatórios'
     );
   });
@@ -113,7 +119,7 @@ test.describe('Autenticação - Login e Logout', () => {
     await takeScreenshotAndAttach(
       page,
       testInfo,
-      'screenshots/login-email-invalido.png',
+      'reports/screenshots/login-email-invalido.png',
       'Evidência - E-mail em formato inválido'
     );
   });
@@ -146,7 +152,7 @@ test.describe('Autenticação - Login e Logout', () => {
     await takeScreenshotAndAttach(
       page,
       testInfo,
-      'screenshots/logout-acesso-bloqueado.png',
+      'reports/screenshots/logout-acesso-bloqueado.png',
       'Evidência - Acesso bloqueado após logout'
     );
   });

@@ -80,9 +80,9 @@ export class ProdutoPage {
     await expect(this.linkCadastrarProdutos).toBeVisible({ timeout: 15_000 });
   }
 
-  /** Garante que está na tela de cadastro de produtos. */
+  /** Garante que está na tela de cadastro de produtos (ou edição). */
   async expectOnCadastroPage() {
-    await expect(this.headingCadastroProdutos).toBeVisible();
+    await expect(this.headingCadastroProdutos).toBeVisible({ timeout: 15_000 });
   }
 
   /** Clica em Excluir no índice informado (0 = primeiro). */

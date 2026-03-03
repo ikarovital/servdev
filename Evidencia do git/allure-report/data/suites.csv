@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1583","deve validar campos obrigatórios (e-mail e senha vazios)","chromium","2026-02-25","passed","2026-02-25","Regressão - Autenticação - Login e Logout","e2e/Login.spec.js","",""
+"","1501","deve fazer login com usuario salvo","chromium","2026-02-25","passed","2026-02-25","Regressão - Autenticação - Login e Logout","e2e/Login.spec.js","",""
+"","3250","deve impedir login com e-mail em formato inválido","chromium","2026-02-25","passed","2026-02-25","Regressão - Autenticação - Login e Logout","e2e/Login.spec.js","",""
+"","5331","criar usuario com sucesso","chromium","2026-02-25","passed","2026-02-25","Regressão - Autenticação - Login e Logout","e2e/Login.spec.js","",""
+"","2082","deve permitir logout e bloquear acesso posterior a rotas protegidas","chromium","2026-02-25","passed","2026-02-25","Regressão - Autenticação - Login e Logout","e2e/Login.spec.js","",""
+"","1557","deve exibir mensagem de erro para credenciais inválidas","chromium","2026-02-25","passed","2026-02-25","Regressão - Autenticação - Login e Logout","e2e/Login.spec.js","",""
